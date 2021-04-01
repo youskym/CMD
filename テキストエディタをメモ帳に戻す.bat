@@ -1,15 +1,15 @@
 @echo off
 whoami /priv | find "SeDebugPrivilege" > nul
 if %errorlevel% neq 0 (
-　@powershell start-process "%~0" -verb runas
-　echo 管理者権限がありません。管理者権限で実行します
-　exit
+�@echo �Ǘ��Ҍ���������܂���B�Ǘ��Ҍ����Ŏ��s���܂�
+�@@powershell start-process \"%~0\" -verb runas
+�@exit
 )
-REM ここから下、exitまでを管理者として実行
+REM �������牺�Aexit�܂ł��Ǘ��҂Ƃ��Ď��s
 
-echo テキストエディタをメモ帳に戻します。
+echo �e�L�X�g�G�f�B�^���������ɖ߂��܂��B
 pause
-echo 本当にやって良い？
+echo �{���ɂ���ėǂ��H
 pause
 
 

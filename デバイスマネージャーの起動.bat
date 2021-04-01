@@ -1,8 +1,8 @@
-@echo
+@echo off
 whoami /priv | find "SeDebugPrivilege" > nul
 if %errorlevel% neq 0 (
-　@powershell start-process "%~0" -verb runas
 　echo 管理者権限がありません。管理者権限で実行します
+　@powershell start-process \"%~0\" -verb runas
 　exit
 )
 REM ここから下、exitまでを管理者として実行
