@@ -1,15 +1,15 @@
-
+@echo off
 whoami /priv | find "SeDebugPrivilege" > nul
 if %errorlevel% neq 0 (
-@@powershell start-process "%~0" -verb runas
-@echo ŠÇ—ÒŒ ŒÀ‚ª‚ ‚è‚Ü‚¹‚ñBŠÇ—ÒŒ ŒÀ‚ÅÀs‚µ‚Ü‚·
-@exit
+ã€€@powershell start-process "%~0" -verb runas
+ã€€echo ç®¡ç†è€…æ¨©é™ãŒã‚ã‚Šã¾ã›ã‚“ã€‚ç®¡ç†è€…æ¨©é™ã§å®Ÿè¡Œã—ã¾ã™
+ã€€exit
 )
-REM ‚±‚±‚©‚ç‰ºAexit‚Ü‚Å‚ğŠÇ—Ò‚Æ‚µ‚ÄÀs
+REM ã“ã“ã‹ã‚‰ä¸‹ã€exitã¾ã§ã‚’ç®¡ç†è€…ã¨ã—ã¦å®Ÿè¡Œ
 
-echo ƒeƒLƒXƒgƒGƒfƒBƒ^‚ğGŠÛ‚É‚µ‚Ü‚·B
+echo ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ã‚’ç§€ä¸¸ã«ã—ã¾ã™ã€‚
 pause
-echo –{“–‚É‚â‚Á‚Ä—Ç‚¢H
+echo æœ¬å½“ã«ã‚„ã£ã¦è‰¯ã„ï¼Ÿ
 pause
 
 
@@ -51,6 +51,6 @@ pause
 
 exit
 
-rem ˆÈ‰º‚ÍOffice‚Ì“®ì‚ÉˆÙí‚ğ—ˆ‚·‰Â”\«‚ ‚èB
+rem ä»¥ä¸‹ã¯Officeã®å‹•ä½œã«ç•°å¸¸ã‚’æ¥ã™å¯èƒ½æ€§ã‚ã‚Šã€‚
 rem .rels,.xml XML Document
 rem reg add "HKCR\xmlfile\shell\edit\Command" /ve /t REG_EXPAND_SZ /d "\"^%%ProgramFiles^%%\Hidemaru\Hidemaru.exe\" \"^%%1\"" /f
