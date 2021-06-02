@@ -1,19 +1,11 @@
 @echo off
-
-REM Auto check & get admin rights
-powershell start-process hello.bat -verb runas
-CLS
-:checkPrivileges
-NET FILE 1>NUL 2>NUL
-if '%errorlevel%' == '0' ( goto gotPrivileges ) else ( goto getPrivileges )
+REM 権限を自動で確認し、必要なら強引に昇格させて無警告に実行。
+whoami /priv | find "SeDebugPrivilege" > nul
+if %errorlevel% neq 0 ( goto getPrivileges )
+goto gotPrivileges
 
 :getPrivileges
-if '%1'=='ELEV' (shift & goto gotPrivileges)  
-ECHO.
-ECHO ***********************************
-ECHO Invoking UAC to escalate privilege
-ECHO ***********************************
-
+if '%1'=='ELEV' ( shift & goto gotPrivileges )
 setlocal DisableDelayedExpansion
 set "batchPath=%~0"
 setlocal EnableDelayedExpansion
@@ -23,9 +15,5 @@ ECHO UAC.ShellExecute "!batchPath!", "ELEV", "", "runas", 1 >> "%temp%\OEgetPriv
 exit /b
 
 :gotPrivileges
-::::::::::::::::::::::::::::
-::START
-::::::::::::::::::::::::::::
 setlocal & pushd .
-
-REM Write your batch script from here
+REM ここから下に処理内容を記述します。
